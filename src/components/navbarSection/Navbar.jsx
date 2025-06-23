@@ -27,14 +27,7 @@ const Navbar = () => {
                             </div>
 
 
-                            <div class="" >
-                                <ul className='flex gap-6 font-loto text-white'>
-                                    <li className='bg-[crimson] px-4 rounded-md hover:shadow-blue-500/70 hover:shadow-[0_0_25px_5px] hover:-translate-y-1 cursor-pointer transition-all duration-300'>Home</li>
-                                    <li className='bg-[crimson] px-4 rounded-md hover:shadow-blue-500/70 hover:shadow-[0_0_25px_5px] hover:-translate-y-1 cursor-pointer transition-all duration-300'>About</li>
-                                    <li className='bg-[crimson] px-4 rounded-md hover:shadow-blue-500/70 hover:shadow-[0_0_25px_5px] hover:-translate-y-1 cursor-pointer transition-all duration-300'>Services</li>
-                                    <li className='bg-[crimson] px-4 rounded-md hover:shadow-blue-500/70 hover:shadow-[0_0_25px_5px] hover:-translate-y-1 cursor-pointer transition-all duration-300'>Contact</li>
-                                </ul>
-                            </div>
+                     
 
                             <div class="flex text-2xl gap-4 pr-9">
                                 <MdStarOutline />
