@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import women from '../../assets/ban.jpg';
 import Container from '../Container';
-import { motion } from 'framer-motion';
+import { motion, useInView, useAnimation } from 'framer-motion';
+import background from '../../assets/bg2.jpg'; // এটা ঠিক path অনুযায়ী adjust করবে
 
 const Banner = () => {
+
+  let ref = useRef(null)
+  let isInView = useInView(ref, { once: true })
+  let mainControls = useAnimation()
+  let slideControls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible")
+      slideControls.start("visible")
+    }
+  }, [isInView])
+
   return (
-    <div className='py-[60px] md:py-[80px] bg-gradient-to-br from-black via-gray-800 to-white text-white relative overflow-hidden'>
-
+    <div
+      className="py-[60px] md:py-[80px] text-black relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${background})`
+      }}
+    >
       <Container>
-
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
 
           {/* Text Area */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h3 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-bold leading-tight uppercase">
+          <motion.div ref={ref} variants={{
+            hidden: { opacity: 0, y: 75 },
+            visible: { opacity: 1, y: 0 }
+          }} initial="hidden" animate={mainControls} transition={{ duration: 0.5, delay: 0.25 }} className="w-full lg:w-1/2 text-center lg:text-left">
+            <h3 className="font-luxary text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight uppercase">
               Your Beauty in trusted hands
             </h3>
-            <p className="pt-3 pb-8 font-bold text-sm sm:text-base md:text-lg lg:text-[17px] xl:text-[18px] max-w-[600px] mx-auto lg:mx-0">
+            <p className="font-pera pt-3 pb-8 font-bold text-sm sm:text-base md:text-lg lg:text-[17px] xl:text-[18px] max-w-[600px] mx-auto lg:mx-0">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, ipsum inventore repudiandae temporibus veniam voluptatum mollitia aliquid a, enim quibusdam modi quia doloribus, deleniti illum unde quaerat consequatur nobis.
             </p>
             <motion.a
@@ -26,7 +46,7 @@ const Banner = () => {
             >
               Shop Now
             </motion.a>
-          </div>
+          </motion.div>
 
           {/* Image Area */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">

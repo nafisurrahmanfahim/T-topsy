@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from '../Container';
 import { IoIosSearch } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
@@ -9,9 +9,23 @@ import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 shadow-[0_0_20px_5px_rgba(255,255,255,0.2)] border-b border-white/10 overflow-x-hidden">
+        <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-black/80 shadow-lg' : 'backdrop-blur-md bg-white/10 shadow-[0_0_20px_5px_rgba(255,255,255,0.2)]'} border-b border-white/10 overflow-x-hidden`}>
             <Container>
                 <div className="flex items-center justify-between flex-wrap px-4 py-3 w-full">
 
