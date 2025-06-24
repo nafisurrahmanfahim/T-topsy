@@ -1,5 +1,5 @@
 import React from 'react';
-import video from '../../assets/video.mp4'
+import video from '../../../public/video.mp4'
 const BackgroundVideoSection = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
