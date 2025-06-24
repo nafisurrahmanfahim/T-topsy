@@ -11,15 +11,15 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 shadow-[0_0_20px_5px_rgba(255,255,255,0.2)] border-b border-white/10">
+        <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 shadow-[0_0_20px_5px_rgba(255,255,255,0.2)] border-b border-white/10 overflow-x-hidden">
             <Container>
-                <div className="flex items-center md:justify-between gap-24 mx-auto px-4 py-3">
+                <div className="flex items-center justify-between flex-wrap px-4 py-3 w-full">
 
                     {/* Search */}
-                    <div className="relative">
+                    <div className="relative flex-shrink-0">
                         <input
                             type="search"
-                            className="outline-none w-[160px] sm:w-[200px] md:w-[240px] h-[36px] border border-[black] pl-6 text-sm text-black"
+                            className="outline-none w-[160px] sm:w-[200px] md:w-[240px] h-[36px] border border-black pl-6 text-sm text-black"
                             placeholder="search"
                             aria-label="Search Products"
                         />
@@ -29,21 +29,24 @@ const Navbar = () => {
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden xl:flex">
-                        <ul className="flex gap-4 text-white font-bold font-poppins">
+                    <div className="hidden xl:flex flex-1 justify-center min-w-0 overflow-hidden">
+                        <ul className="flex gap-4 text-white font-bold font-poppins flex-wrap">
                             {["Home", "About", "Services", "Products", "Contact", "Support"].map((item, i) => (
-                                <li key={i} className="px-2 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-white hover:after:w-full transition-all after:transition-all after:duration-500 cursor-pointer">{item}</li>
+                                <li
+                                    key={i}
+                                    className="px-2 whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-white hover:after:w-full transition-all after:duration-500 cursor-pointer"
+                                >
+                                    {item}
+                                </li>
                             ))}
                         </ul>
                     </div>
 
                     {/* Icons + Hamburger */}
-                    <div className="flex items-center text-2xl gap-4 text-white">
+                    <div className="flex items-center text-2xl gap-4 text-white flex-shrink-0">
                         <MdStarOutline />
                         <CiUser />
                         <HiOutlineShoppingBag />
-
-                        {/* Hamburger 1220px  */}
                         <div className="xl:hidden cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
                             {menuOpen ? <IoClose /> : <GiHamburgerMenu />}
                         </div>
@@ -62,7 +65,7 @@ const Navbar = () => {
                 )}
             </Container>
         </div>
-    )
-}
+    );
+};
 
 export default Navbar;
