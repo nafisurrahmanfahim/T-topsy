@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 shadow-[0_0_20px_5px_rgba(255,255,255,0.2)] border-b border-white/10">
             <Container>
-                <div className="flex items-center justify-between mx-auto px-4 py-3">
+                <div className="flex items-center md:justify-between gap-24 mx-auto px-4 py-3">
 
                     {/* Search */}
                     <div className="relative">
@@ -43,7 +43,7 @@ const Navbar = () => {
                         <CiUser />
                         <HiOutlineShoppingBag />
 
-                        {/* Hamburger ১২২০px নিচে */}
+                        {/* Hamburger 1220px  */}
                         <div className="xl:hidden cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
                             {menuOpen ? <IoClose /> : <GiHamburgerMenu />}
                         </div>
