@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import women from '../../assets/ban.jpg';
 import Container from '../Container';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import background from '../../assets/bg2.jpg'; // এটা ঠিক path অনুযায়ী adjust করবে
+import background from '../../assets/bg5.jpg'; // এটা ঠিক path অনুযায়ী adjust করবে
 
 const Banner = () => {
 
@@ -26,7 +26,7 @@ const Banner = () => {
       }}
     >
       <Container>
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
+        <div className="py-[160px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
 
           {/* Text Area */}
           <motion.div ref={ref} variants={{
@@ -49,11 +49,11 @@ const Banner = () => {
           </motion.div>
 
           {/* Image Area */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+          {/* <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
             <div className="w-[70%] sm:w-[60%] md:w-[50%] lg:w-[75%] aspect-square overflow-hidden rounded-lg shadow-lg">
-              <img src={women} className="w-full h-full object-cover" alt="img" />
+              <img src='---' className="w-full h-full object-cover" alt="img" />
             </div>
-          </div>
+          </div> */}
 
         </div>
       </Container>
