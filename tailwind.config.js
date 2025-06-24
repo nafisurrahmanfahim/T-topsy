@@ -6,6 +6,14 @@ export default {
   ],
   theme: {
     extend: {
+          screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1220px', // Custom breakpoint
+      '2xl': '1536px',
+    },
       boxShadow: {
         cyanShadow: '0px 0px 20px 0px rgba(255, 0, 0, 1)',
         cyanMediumShadow: '10px 10px 200px 150px rgba(255, 0, 0, 1)',
@@ -13,7 +21,8 @@ export default {
       },
       fontFamily: {
         roman: ["Luxurious Roman, sans-serif"],
-        loto: ['Lato, sa']
+        loto: ['Lato, sa'],
+        poppins: ['Poppins, sans-serif']
       }
     },
   },
