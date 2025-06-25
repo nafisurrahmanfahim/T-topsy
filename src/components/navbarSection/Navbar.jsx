@@ -33,22 +33,22 @@ const Navbar = () => {
                     <div className="relative flex-shrink-0">
                         <input
                             type="search"
-                            className="outline-none w-[160px] sm:w-[200px] md:w-[240px] h-[36px] border border-black pl-6 text-sm text-black"
-                            placeholder="search"
+                            className={`outline-none w-[160px] sm:w-[200px] md:w-[240px] h-[40px] rounded-full pl-10 pr-4 text-sm transition-all duration-500 ${isScrolled ? 'bg-black/60 border border-white text-white placeholder:text-white/70' : 'bg-white border border-black text-black placeholder:text-black/70'}`}
+                            placeholder="Search products..."
                             aria-label="Search Products"
                         />
-                        <div className="absolute top-1/2 left-[5px] transform -translate-y-1/2 text-black">
+                        <div className={`absolute top-1/2 left-3 transform -translate-y-1/2 text-lg transition-all duration-500 ${isScrolled ? 'text-white' : 'text-black'}`}>
                             <IoIosSearch />
                         </div>
                     </div>
 
                     {/* Desktop Menu */}
                     <div className="hidden xl:flex flex-1 justify-center min-w-0 overflow-hidden">
-                        <ul className="flex gap-4 text-white font-bold font-poppins flex-wrap">
+                        <ul className={`flex gap-4 font-bold font-poppins flex-wrap ${isScrolled ? 'text-white' : 'text-black'}`}>
                             {["Home", "About", "Services", "Products", "Contact", "Support"].map((item, i) => (
                                 <li
                                     key={i}
-                                    className="px-2 whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-white hover:after:w-full transition-all after:duration-500 cursor-pointer"
+                                    className={`px-2 whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] ${isScrolled ? 'after:bg-white' : 'after:bg-black'} hover:after:w-full transition-all after:duration-500 cursor-pointer`}
                                 >
                                     {item}
                                 </li>
@@ -57,7 +57,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Icons + Hamburger */}
-                    <div className="flex items-center text-2xl gap-4 text-white flex-shrink-0">
+                    <div className={`flex items-center text-2xl gap-4 flex-shrink-0 ${isScrolled ? 'text-white' : 'text-black'}`}>
                         <MdStarOutline />
                         <CiUser />
                         <HiOutlineShoppingBag />
