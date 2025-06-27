@@ -6,7 +6,6 @@ import background1 from '../../assets/bg.jpg';
 import model1 from '../../assets/tops.jpg';
 import model2 from '../../assets/bgModel.jpg';
 
-
 const Banner = () => {
 
   const ref = useRef(null);
@@ -23,9 +22,14 @@ const Banner = () => {
   }, [isInView]);
 
   useEffect(() => {
+    images.forEach(img => {
+      const preload = new Image();
+      preload.src = img;
+    });
+
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 3000); // 5 sec delay for better smoothness
 
     return () => clearInterval(interval);
   }, []);
@@ -70,13 +74,21 @@ const Banner = () => {
           {/* Image Area */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
             <motion.div
-              key={images[currentIndex]}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               className="w-[70%] sm:w-[60%] md:w-[50%] lg:w-[75%] aspect-square overflow-hidden rounded-lg shadow-lg"
             >
-              <img src={images[currentIndex]} className="w-full h-full object-cover" alt="Model" />
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                loading="lazy"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-full object-cover"
+                alt="Model"
+              />
             </motion.div>
           </div>
 
