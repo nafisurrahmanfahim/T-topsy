@@ -5,8 +5,7 @@ import { motion, useInView, useAnimation } from 'framer-motion';
 import background1 from '../../assets/bg.jpg';
 import model1 from '../../assets/tops.jpg';
 import model2 from '../../assets/bgModel.jpg';
-import model3 from '../../assets/bgModel3.png';
-import model4 from '../../assets/bgModel4.png';
+
 
 const Banner = () => {
 
@@ -14,7 +13,7 @@ const Banner = () => {
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
 
-  const images = [model1, model2, model3, model4];
+  const images = [model1, model2];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
