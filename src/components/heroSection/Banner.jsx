@@ -15,21 +15,26 @@ const Banner = () => {
   const images = [model1, model2];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Preload images for instant swap
+  useEffect(() => {
+    images.forEach(img => {
+      const preload = new Image();
+      preload.src = img;
+    });
+  }, []);
+
+  // Text area animation trigger
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
     }
   }, [isInView]);
 
+  // Image Change Interval
   useEffect(() => {
-    images.forEach(img => {
-      const preload = new Image();
-      preload.src = img;
-    });
-
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 3000); // 5 sec delay for better smoothness
+    }, 3000); // Smooth transition every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -53,7 +58,7 @@ const Banner = () => {
             }}
             initial="hidden"
             animate={mainControls}
-            transition={{ duration: 0.5, delay: 0.25 }}
+            transition={{ duration: 0.5 }}
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
             <h3 className="font-luxary text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight uppercase">
@@ -63,8 +68,8 @@ const Banner = () => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, ipsum inventore repudiandae temporibus veniam voluptatum mollitia aliquid a, enim quibusdam modi quia doloribus, deleniti illum unde quaerat consequatur nobis.
             </p>
             <motion.a
-              whileHover={{ scale: 1.015 }}
-              whileTap={{ scale: 0.985 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className='cursor-pointer py-3 px-6 bg-black text-white inline-block rounded-sm'
             >
               Shop Now
@@ -73,23 +78,21 @@ const Banner = () => {
 
           {/* Image Area */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="w-[70%] sm:w-[60%] md:w-[50%] lg:w-[75%] aspect-square overflow-hidden rounded-lg shadow-lg"
-            >
-              <motion.img
-                key={currentIndex}
-                src={images[currentIndex]}
-                loading="lazy"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full object-cover"
-                alt="Model"
-              />
-            </motion.div>
+            <div className="w-[70%] sm:w-[60%] md:w-[50%] lg:w-[75%] aspect-square overflow-hidden rounded-lg shadow-lg relative">
+              {images.map((img, index) => (
+                <motion.img
+                  key={index}
+                  src={img}
+                  loading="lazy"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: index === currentIndex ? 1 : 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="w-full h-full object-cover absolute top-0 left-0"
+                  alt={`Model ${index + 1}`}
+                  style={{ position: "absolute" }}
+                />
+              ))}
+            </div>
           </div>
 
         </div>
