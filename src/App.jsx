@@ -5,6 +5,7 @@ import About from './components/aboutSection/About'
 import LastSection from './components/lastSection/LastSection'
 import Footer from './components/footerSection/Footer'
 import VideoSection from './components/videoSection/VideoSection'
+import SummerSale from './components/summerSale/SummerSale'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar />
       <Banner/>
       <About/>
+      <SummerSale/>
       <LastSection/>
       <VideoSection/>
       <Footer/>

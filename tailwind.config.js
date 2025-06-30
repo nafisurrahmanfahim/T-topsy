@@ -24,7 +24,8 @@ export default {
         loto: ['Lato, sa'],
         poppins: ['Poppins, sans-serif'],
         luxary: ["Dancing Script, cursive"],
-        pera: ["Playfair Display, serif;"]
+        pera: ["Playfair Display, serif;"],
+        summer: ["Bebas Neue, sans-serif"]
       }
     },
   },

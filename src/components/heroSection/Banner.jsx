@@ -47,7 +47,7 @@ const Banner = () => {
       }}
     >
       <Container>
-        <div className="py-[160px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
+        <div className="py-[80px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
 
           {/* Text Area */}
           <motion.div
