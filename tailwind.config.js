@@ -25,7 +25,8 @@ export default {
         poppins: ['Poppins, sans-serif'],
         luxary: ["Dancing Script, cursive"],
         pera: ["Playfair Display, serif;"],
-        summer: ["Bebas Neue, sans-serif"]
+        summer: ["Bebas Neue, sans-serif"],
+        nunito: ["Nunito Sans, sans-serif"]
       }
     },
   },

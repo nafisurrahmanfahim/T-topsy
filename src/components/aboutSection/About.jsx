@@ -1,77 +1,94 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from '../Container';
 import women from '../../assets/aboutImg2.jpg';
-import { FaFacebookF } from "react-icons/fa6";
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
-import background1 from '../../assets/bg.jpg';
-
+import { motion } from 'framer-motion';
 
 const About = () => {
-    return (
-        <div style={{
-            backgroundImage: `url(${background1})`
-        }} className='py-10 md:py-20 bg-gradient-to-br from-white via-gray-300 to-black text-black relative'>
+  const imageRef = useRef(null);
 
-            {/* Mobile View Icon Top Area */}
-            <div className="flex gap-4 justify-center mb-6 lg:hidden">
-                <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                    <FaFacebookF />
+  const handleMouseMove = (e) => {
+    const magnetArea = imageRef.current;
+    const rect = magnetArea.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    magnetArea.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+  };
+
+  const handleMouseLeave = () => {
+    imageRef.current.style.transform = `translate(0px, 0px)`;
+  };
+
+  return (
+    <div className="relative overflow-hidden text-white bg-animated-black-red py-16">
+
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+      <Container>
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 md:px-10">
+
+          {/* Text Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="w-full lg:w-[55%] space-y-6 text-center lg:text-left"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">
+              Power Meets Elegance
+            </h2>
+            <p className="text-lg text-gray-200">
+              Embrace beauty with confidence. Discover luxurious cosmetics made to elevate your style and empower your presence.
+            </p>
+            <a
+              href="#"
+              className="inline-block mt-3 bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition hover:scale-105 font-semibold"
+            >
+              Learn More
+            </a>
+
+            {/* Social Icons */}
+            <div className="flex justify-center lg:justify-start gap-4 mt-6">
+              {[FaFacebookF, FaTwitter, FaInstagram, IoLogoLinkedin].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="p-3 border border-gray-300 rounded-full text-white hover:bg-white hover:text-black transition"
+                >
+                  <Icon size={18} />
                 </a>
-                <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                    <FaTwitterSquare />
-                </a>
-                <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                    <FaInstagram />
-                </a>
-                <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                    <IoLogoLinkedin />
-                </a>
+              ))}
             </div>
+          </motion.div>
 
-            <Container>
-                <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-
-                    {/* Desktop Left Side Icon */}
-                    <div className="hidden lg:flex lg:flex-col gap-4 animate-pulse">
-                        <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                            <FaFacebookF />
-                        </a>
-                        <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                            <FaTwitterSquare />
-                        </a>
-                        <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                            <FaInstagram />
-                        </a>
-                        <a href="#" className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition transform hover:scale-110">
-                            <IoLogoLinkedin />
-                        </a>
-                    </div>
-
-                    {/* Image Area */}
-                    <div className="cursor-pointer w-full md:w-[50%] lg:w-[25%] flex justify-center overflow-hidden group">
-                        <img
-                            src={women}
-                            className="w-[70%] sm:w-[50%] md:w-[40%] lg:w-full rounded-lg shadow-lg transition-transform duration-700 ease-in-out group-hover:scale-110"
-                            alt="womenImg"
-                        />
-                    </div>
-
-                    {/* Text Area */}
-                    <div className="w-full lg:w-[50%] text-center lg:text-left space-y-6">
-                        <h3 className="text-[32px] sm:text-[42px] md:text-[52px] font-bold uppercase leading-tight">Power Of Make Up</h3>
-                        <p className="text-sm sm:text-base md:text-lg font-medium max-w-[600px] mx-auto lg:mx-0">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione neque sapiente accusamus cupiditate quam voluptatibus molestias possimus.
-                        </p>
-                        <a className="inline-block text-white bg-black px-6 py-3 rounded hover:bg-gray-800 transition transform hover:scale-105 cursor-pointer">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </Container>
+          {/* Image Section with magnet effect */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="w-full lg:w-[35%] flex justify-center"
+          >
+            <div
+              className="rounded-xl overflow-hidden shadow-xl group magnet-wrapper"
+              ref={imageRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <img
+                src={women}
+                alt="Model"
+                className="w-[70%] mx-auto md:w-[60%] lg:w-[80%] rounded-xl transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </motion.div>
         </div>
-    )
-}
+      </Container>
+    </div>
+  );
+};
 
 export default About;

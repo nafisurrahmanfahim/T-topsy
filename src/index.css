@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Custom animated gradient background */
+.bg-animated-black-red {
+  background: linear-gradient(-45deg, #0f0c29, #3a0d29, #8b0000, #3a0d29);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Magnet hover effect */
+.magnet-wrapper {
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
