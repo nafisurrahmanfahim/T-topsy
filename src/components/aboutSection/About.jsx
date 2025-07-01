@@ -1,26 +1,20 @@
 import React, { useRef } from 'react';
 import Container from '../Container';
 import women from '../../assets/aboutImg2.jpg';
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { motion } from 'framer-motion';
 
 const About = () => {
   const imageRef = useRef(null);
-  let animationFrame;
 
   const handleMouseMove = (e) => {
-    cancelAnimationFrame(animationFrame);
-    animationFrame = requestAnimationFrame(() => {
-      const magnetArea = imageRef.current;
-      const rect = magnetArea.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+    const magnetArea = imageRef.current;
+    const rect = magnetArea.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
 
-      magnetArea.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-    });
+    magnetArea.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
   };
 
   const handleMouseLeave = () => {
@@ -29,18 +23,18 @@ const About = () => {
 
   return (
     <div className="relative overflow-hidden text-white bg-[#ADACB5] py-16">
-      
+
       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
       <Container>
-        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 md:px-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 md:px-10">
 
           {/* Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className="w-full lg:w-[55%] space-y-6 text-center lg:text-left"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">
@@ -72,14 +66,14 @@ const About = () => {
 
           {/* Image Section with magnet effect */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className="w-full lg:w-[35%] flex justify-center"
           >
             <div
-              className="rounded-xl overflow-hidden shadow-md group magnet-wrapper"
+              className="rounded-xl overflow-hidden shadow-xl group magnet-wrapper"
               ref={imageRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -87,12 +81,10 @@ const About = () => {
               <img
                 src={women}
                 alt="Model"
-                loading="lazy"
                 className="w-[70%] mx-auto md:w-[60%] lg:w-[80%] rounded-xl transition-transform duration-500 group-hover:scale-105"
               />
             </div>
           </motion.div>
-          
         </div>
       </Container>
     </div>

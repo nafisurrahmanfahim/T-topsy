@@ -26,7 +26,7 @@ const SummerSale = () => {
     }
 
     return (
-        <div className="py-[130px] bg-[#2D3142] overflow-hidden">
+        <div className="py-[130px] bg-gradient-to-r from-black via-[#0a0a0a] to-black relative overflow-hidden">
 
             {/* Background animation circles */}
             <motion.div

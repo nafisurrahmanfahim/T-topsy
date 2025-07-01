@@ -40,13 +40,13 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className='bg-[#D8D5DB]'
+    <div className='bg-[#D8D5D8]'
       // className="py-[60px] md:py-[10px] text-black relative overflow-hidden bg-cover bg-center bg-no-repeat"
       // style={{
       //   backgroundImage: `url(${background1})`
       // }}
     >
-      <h3 className="text-center font-normal text-[129px] font-[serif] tracking-[0.1em] leading-[0.85]">T-TOPSY</h3>
+      <h3 className="pt-1 text-center font-normal font-[serif] tracking-[0.1em] leading-[0.85] text-[48px] sm:text-[64px] md:text-[96px] lg:text-[129px]]">T-TOPSY</h3>
       <Container>
         <div className="py-[20px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
 
