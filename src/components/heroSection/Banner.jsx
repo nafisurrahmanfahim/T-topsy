@@ -5,7 +5,6 @@ import { motion, useInView, useAnimation } from 'framer-motion';
 import background1 from '../../assets/bg.jpg';
 import model1 from '../../assets/tops.jpg';
 import model2 from '../../assets/bgModel.jpg';
-import Brand from '../brandName/Brand';
 
 const Banner = () => {
 
@@ -41,11 +40,11 @@ const Banner = () => {
   }, []);
 
   return (
-    <div
-      className="py-[60px] md:py-[10px] text-black relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(${background1})`
-      }}
+    <div className='bg-[#D8D5DB]'
+      // className="py-[60px] md:py-[10px] text-black relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      // style={{
+      //   backgroundImage: `url(${background1})`
+      // }}
     >
       <h3 className="text-center font-normal text-[129px] font-[serif] tracking-[0.1em] leading-[0.85]">T-TOPSY</h3>
       <Container>

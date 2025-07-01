@@ -12,14 +12,12 @@ const Header = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAnimate(true);  // Animation শুরু
-
+      setAnimate(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % texts.length);
-        setAnimate(false);  // Animation শেষ
-      }, 500); // Animation চলার সময়
-    }, 4000); // প্রতি ৪ সেকেন্ড পরপর পরিবর্তন
-
+        setAnimate(false);
+      }, 400);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
