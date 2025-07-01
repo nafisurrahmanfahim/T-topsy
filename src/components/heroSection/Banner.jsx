@@ -47,7 +47,7 @@ const Banner = () => {
         backgroundImage: `url(${background1})`
       }}
     >
-      <h3 className="text-center font-normal text-[129px] font-[serif] tracking-[0.1em] leading-[0.85]">TOPSY</h3>
+      <h3 className="text-center font-normal text-[129px] font-[serif] tracking-[0.1em] leading-[0.85]">T-TOPSY</h3>
       <Container>
         <div className="py-[20px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
 
