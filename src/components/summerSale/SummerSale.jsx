@@ -26,24 +26,7 @@ const SummerSale = () => {
     }
 
     return (
-        <div className="py-[130px] bg-gradient-to-r from-black via-[#0a0a0a] to-black relative overflow-hidden">
-
-            {/* Background animation circles */}
-            <motion.div
-                className="absolute inset-0 bg-[#E01518] opacity-20 blur-3xl will-change-transform"
-                animate={{ scale: [1, 1.5, 1], rotate: [0, 180, 360] }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-            />
-            <motion.div
-                className="absolute top-1/3 left-10 w-[200px] h-[200px] bg-[#E01518] opacity-20 blur-3xl rounded-full will-change-transform"
-                animate={{ y: [0, -50, 0], x: [0, 30, 0] }}
-                transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-            />
-            <motion.div
-                className="absolute bottom-10 right-20 w-[150px] h-[150px] bg-[#E01518] opacity-15 blur-3xl rounded-full will-change-transform"
-                animate={{ y: [0, 40, 0], x: [0, -20, 0] }}
-                transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-            />
+        <div className="py-[130px] bg-black relative overflow-hidden">
 
             {/* Heading */}
             <motion.h3
@@ -76,23 +59,26 @@ const SummerSale = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                     className="
-    px-10 py-4 
-    rounded-full 
-    text-white 
-    font-semibold 
-    text-lg 
-    tracking-wider 
-    bg-gradient-to-r from-[#E01518] via-[#ff3c3c] to-[#a20e0e] 
-    bg-[length:300%_300%] 
-    shadow-md 
-    cursor-pointer 
-    select-none 
-    transition-all duration-500 relative overflow-hidden
-  "
+                        px-10 py-4 
+                        rounded-full 
+                        text-white 
+                        font-semibold 
+                        text-lg 
+                        tracking-wider 
+                        bg-gradient-to-r from-[#E01518] via-[#ff3c3c] to-[#a20e0e] 
+                        bg-[length:300%_300%] 
+                        shadow-md 
+                        cursor-pointer 
+                        select-none 
+                        transition-all duration-500 relative overflow-hidden
+                    "
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ rotateX, rotateY }}
                 >
                     <span className="relative z-10">Shop Now</span>
 
-                    {/* Extra animated glow layer */}
+                    {/* Hover glow */}
                     <motion.span
                         className="absolute inset-0 rounded-full"
                         style={{
@@ -107,7 +93,6 @@ const SummerSale = () => {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                     />
                 </motion.button>
-
             </motion.div>
         </div>
     );
