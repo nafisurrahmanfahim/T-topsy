@@ -26,7 +26,8 @@ export default {
         luxary: ["Dancing Script, cursive"],
         pera: ["Playfair Display, serif;"],
         summer: ["Bebas Neue, sans-serif"],
-        nunito: ["Nunito Sans, sans-serif"]
+        nunito: ["Nunito Sans, sans-serif"],
+        mono: ["Libertinus Mono, monospace"]
       }
     },
   },

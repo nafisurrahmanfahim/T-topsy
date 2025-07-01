@@ -23,11 +23,11 @@ const About = () => {
 
   return (
     <div className="relative overflow-hidden text-white bg-animated-black-red py-16">
-
+      
       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
       <Container>
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 md:px-10">
+        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 md:px-10">
 
           {/* Text Section */}
           <motion.div
@@ -85,6 +85,7 @@ const About = () => {
               />
             </div>
           </motion.div>
+          
         </div>
       </Container>
     </div>

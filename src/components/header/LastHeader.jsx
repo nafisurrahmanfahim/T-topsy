@@ -10,12 +10,6 @@ const LastHeader = () => {
         <div className="flex space-x-4">
           <a
             href="#"
-            className="px-4 text-[13px] border border-white hover:bg-white hover:text-black transition duration-300 text-sm font-nunito"
-          >
-            Men
-          </a>
-          <a
-            href="#"
             className="px-4 border border-white hover:bg-white hover:text-black transition duration-300 text-sm font-nunito"
           >
             Women

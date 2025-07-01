@@ -8,6 +8,7 @@
   background: linear-gradient(-45deg, #0f0c29, #3a0d29, #8b0000, #3a0d29);
   background-size: 400% 400%;
   animation: gradientFlow 12s ease infinite;
+  -webkit-animation: gradientFlow 12s ease infinite;
 }
 
 @keyframes gradientFlow {
