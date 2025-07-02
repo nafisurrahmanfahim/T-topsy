@@ -40,7 +40,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className='bg-[#D8D5D8]'
+    <div className='bg-[#f7f8f7]'
       // className="py-[60px] md:py-[10px] text-black relative overflow-hidden bg-cover bg-center bg-no-repeat"
       // style={{
       //   backgroundImage: `url(${background1})`
