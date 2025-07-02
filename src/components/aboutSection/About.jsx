@@ -22,7 +22,7 @@ const About = () => {
   };
 
   return (
-    <div className="relative overflow-hidden text-white bg-[#ADACB5] py-16">
+    <div className="relative overflow-hidden text-white bg-[#ADACD5] py-16">
 
       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
