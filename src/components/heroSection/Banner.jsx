@@ -2,34 +2,33 @@ import React, { useEffect, useRef } from 'react';
 import Container from '../Container';
 import { motion, useInView, useAnimation } from 'framer-motion';
 
-import model from '../../assets/model.png';
+import model from '../../assets/md.jpg';
 
 const Banner = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
 
+  // Trigger the text animation when the banner enters the viewport
   useEffect(() => {
     if (isInView) {
-      mainControls.start("visible");
+      mainControls.start('visible');
     }
   }, [isInView]);
 
   return (
-    <div className="bg-[#f7f8f7]">
-      <h3 className="pt-1 text-center font-normal font-[serif] tracking-[0.1em] leading-[0.85] text-[48px] sm:text-[64px] md:text-[96px] lg:text-[129px]">
-        T-TOPSY
-      </h3>
-
+    <div
+      ref={ref}
+      className="py-[120px] bg-cover bg-center bg-no-repeat w-full"
+      style={{ backgroundImage: `url(${model})` }}
+    >
       <Container>
-        <div className="py-[20px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
-          
+        <div className="py-20 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-36">
           {/* Text Area */}
           <motion.div
-            ref={ref}
             variants={{
               hidden: { opacity: 0, y: 75 },
-              visible: { opacity: 1, y: 0 }
+              visible: { opacity: 1, y: 0 },
             }}
             initial="hidden"
             animate={mainControls}
@@ -51,15 +50,8 @@ const Banner = () => {
             </motion.a>
           </motion.div>
 
-          {/* Image Area */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <img
-              src={model}
-              alt="Model"
-              className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px] h-auto object-contain"
-            />
-          </div>
-          
+          {/* Spacer for layout consistency */}
+          <div className="w-full lg:w-1/2" />
         </div>
       </Container>
     </div>
