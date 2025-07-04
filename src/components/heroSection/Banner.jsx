@@ -35,7 +35,7 @@ const Banner = () => {
             transition={{ duration: 0.5 }}
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
-            <h3 className="font-luxary text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight uppercase">
+            <h3 className="font-loto text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight uppercase">
               Your Beauty in trusted hands
             </h3>
             <p className="font-pera pt-3 pb-8 font-bold text-sm sm:text-base md:text-lg lg:text-[17px] xl:text-[18px] max-w-[600px] mx-auto lg:mx-0">
