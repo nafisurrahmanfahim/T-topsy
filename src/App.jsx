@@ -6,11 +6,13 @@ import LastSection from './components/lastSection/LastSection'
 import Footer from './components/footerSection/Footer'
 import VideoSection from './components/videoSection/VideoSection'
 import SummerSale from './components/summerSale/SummerSale'
+import Topsy from './components/Topsy'
 
 const App = () => {
   return (
     <div>
       <Navbar />
+      <Topsy/>
       <Banner/>
       <About/>
       <LastSection/>
