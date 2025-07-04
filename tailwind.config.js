@@ -21,7 +21,7 @@ export default {
       },
       fontFamily: {
         roman: ["Luxurious Roman, sans-serif"],
-        loto: ['Lato, sa'],
+        loto: ['Pacifico, cursive'],
         poppins: ['Poppins, sans-serif'],
         luxary: ["Dancing Script, cursive"],
         pera: ["Playfair Display, serif;"],
