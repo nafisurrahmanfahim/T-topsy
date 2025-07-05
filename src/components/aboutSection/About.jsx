@@ -37,7 +37,7 @@ const About = () => {
             transition={{ duration: 1 }}
             className="w-full lg:w-[55%] space-y-6 text-center lg:text-left"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">
+            <h2 className="font-loto text-4xl md:text-5xl font-extrabold leading-tight text-white">
               Power Meets Elegance
             </h2>
             <p className="text-lg text-gray-200">
